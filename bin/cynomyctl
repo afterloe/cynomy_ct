@@ -1,0 +1,58 @@
+#!/usr/bin/env node
+
+/**!
+ * cynomys.jwis.cn - bin/cynomyctl
+ *
+ * Copyright(c) afterloe.
+ * ISC Licensed
+ *
+ * Authors:
+ *   afterloe <afterloeliu@jwis.cn> (http://blog.sina.com.cn/afterloe)
+ */
+
+"use strict";
+
+const [program, debug, path, fs, mkdirp, treekill] = [require("commander"), require("debug")("cynomys:cli"), require("path"), require("fs"), require("mkdirp"), require("treekill")];
+const version = require(path.join(__dirname, "..", "package")).version;
+
+program.version(version); // 命令版本号
+
+/**
+ *  help 命令
+ */
+program.command("help")
+    .description("显示使用帮助")
+    .action(() => {
+        program.outputHelp();
+    });
+
+/**
+ *  create 命令
+ */
+program.command("create [dir]")
+    .description("创建一个空的项目")
+    .action(dir => {
+        console.log(`create new project in ${dir}`);
+    });
+
+/**
+ *  preview 命令
+ */
+program.command("preview [dir]")
+    .description("实时预览")
+    .action(dir => {
+        console.log(`preview project in ${dir}`);
+    });
+
+/**
+ *  build命令
+ */
+program.command("build [dir]")
+    .description("构建静态站点")
+    .option("-o, --output <dir>", "输出存放目录")
+    .action((dir, options) => {
+        console.log(`build static project use ${dir}, output in ${options.output}`);
+    });
+
+// 解析命令
+program.parse(process.argv);

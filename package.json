@@ -1,0 +1,43 @@
+{
+  "name": "command-tool",
+  "version": "0.0.1",
+  "homepage": "http://jwis.cn",
+  "description": "命令行工具-- 静态API资源管理",
+  "main": "index.js",
+  "scripts": {
+    "dev": "DEBUG=cnpm* node dispatch.js",
+    "start": "bin/cynomyctl start",
+    "status": "bin/cynomyctl status",
+    "stop": "bin/cynomyctl stop",
+    "test": "mocha test/*_test.js"
+  },
+  "bin": {
+    "tru": "bin/cynomyctl"
+  },
+  "keywords": [
+    "commander",
+    "api",
+    "document"
+  ],
+  "engines": {
+    "node": ">= 6.3.0",
+    "mongod": ">= 3.2.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "ssh://git@gitlab.jwis.cn/makTeam/cynomys_ct.git",
+    "web": "http://gitlab.jwis.cn/makTeam/cynomys_ct.git"
+  },
+  "bugs": {
+    "url": "http://blog.sina.com.cn/afterloe",
+    "email": "afterloeliu@jwis.cn"
+  },
+  "author": "afterloe<afterloeliu@jwis.cn>",
+  "license": "ISC",
+  "dependencies": {
+    "commander": "^2.9.0",
+    "debug": "^2.2.0",
+    "mkdirp": "^0.5.1",
+    "treekill": "^1.0.0"
+  }
+}
