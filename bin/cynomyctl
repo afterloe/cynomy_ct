@@ -9,7 +9,6 @@
  * Authors:
  *   afterloe <afterloeliu@jwis.cn> (http://blog.sina.com.cn/afterloe)
  */
-
 "use strict";
 
 const [program, debug, path, fs, mkdirp, treekill] = [require("commander"), require("debug")("cynomys:cli"), require("path"), require("fs"), require("mkdirp"), require("treekill")];
@@ -40,9 +39,7 @@ program.command("create [dir]")
  */
 program.command("preview [dir]")
     .description("实时预览")
-    .action(dir => {
-        console.log(`preview project in ${dir}`);
-    });
+    .action(require(path.join(__dirname, "..", "server")));
 
 /**
  *  build命令

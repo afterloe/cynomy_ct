@@ -1,0 +1,46 @@
+<div class="jumbotron jumbotron-home jumbotron-inverse">
+    <div class="container-responsive">
+        <div class="columns">
+            <div class="homepage-hero-intro column">
+                <h1 class="display-heading-1 jumbotron-title">cynomys 资料共享</h1>
+                <p class="display-intro jumbotron-lead">Millions of developers use GitHub to build personal projects,
+                    support their businesses, and&nbsp;work together on open source technologies.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <% list.map((file,index) => {
+    let flag = 0 === index % 2;
+    %>
+    <a class="media item" href="/browse/<%= file.name%>.html" style="display: block">
+        <span class="<%= flag? "pull-left":"pull-right" %>">
+            <img class="media-object" src="/markdowneditor_48.png" alt="document image">
+        </span>
+        <div class="media-body" style="padding-top: 12px;">
+            <h4 class="media-heading <%= flag? "pull-left":"pull-right" %>"><%= file.name%></h4>
+            <small class="<%= flag? "pull-right":"pull-left" %>">
+                create in <%= file.status.ctime.toLocaleString() %> <br/>
+            Lately time modify <%= file.status.mtime.toLocaleString() %>
+            </small>
+        </div>
+    </a>
+    <% }); %>
+</div>
+<nav style="text-align: center">
+    <ul class="pagination">
+        <li class="active"><a href="#">1 <span class="sr-only">(current)</span></a></li>
+        <li class="disabled"><a href="#" >next</a></li>
+    </ul>
+</nav>
+<style>
+    .item {
+        border-radius : 8px;
+    }
+
+    .item:hover {
+        background-color: rgba(223, 240, 216, 0.48);
+        color: rgb(14,26,73);
+    }
+</style>
