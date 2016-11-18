@@ -50,5 +50,5 @@ module.exports = dir => {
         }
     });
 
-    app.listen(3000, () => console.log("server is running in 127.0.0.1:3000"));
+    app.listen(10030,"0.0.0.0" ,() => console.log("server is running in 127.0.0.1:3000"));
 };
